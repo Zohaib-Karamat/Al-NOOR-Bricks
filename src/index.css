@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,35 +6,44 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 13%;
+    --background: 30 15% 97%;
+    --foreground: 20 10% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 13%;
+    --card-foreground: 20 10% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 13%;
+    --popover-foreground: 20 10% 12%;
 
-    --primary: 0 50% 36%;
+    --primary: 10 65% 32%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 95%;
-    --secondary-foreground: 0 0% 13%;
+    --secondary: 25 30% 20%;
+    --secondary-foreground: 30 15% 95%;
 
-    --muted: 0 0% 95%;
-    --muted-foreground: 0 0% 45%;
+    --muted: 30 10% 92%;
+    --muted-foreground: 20 8% 45%;
 
-    --accent: 0 0% 95%;
-    --accent-foreground: 0 0% 13%;
+    --accent: 30 50% 50%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
-    --ring: 0 50% 36%;
+    --border: 30 10% 88%;
+    --input: 30 10% 88%;
+    --ring: 10 65% 32%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    --primary-dark: 10 65% 24%;
+    --primary-light: 10 45% 92%;
+    --hero-overlay: 20 20% 8%;
+    --section-alt: 30 15% 95%;
+    --section-dark: 25 30% 12%;
+    --section-dark-foreground: 30 15% 95%;
+    --warm: 30 50% 50%;
+    --warm-foreground: 0 0% 100%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -44,35 +53,36 @@
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
-
-    --primary-dark: 0 50% 28%;
-    --hero-overlay: 0 0% 0%;
-    --section-alt: 0 0% 97%;
   }
 
   .dark {
-    --background: 0 0% 7%;
-    --foreground: 0 0% 95%;
-    --card: 0 0% 10%;
-    --card-foreground: 0 0% 95%;
-    --popover: 0 0% 10%;
-    --popover-foreground: 0 0% 95%;
-    --primary: 0 50% 40%;
+    --background: 20 10% 7%;
+    --foreground: 30 15% 95%;
+    --card: 20 10% 10%;
+    --card-foreground: 30 15% 95%;
+    --popover: 20 10% 10%;
+    --popover-foreground: 30 15% 95%;
+    --primary: 10 55% 45%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 15%;
-    --secondary-foreground: 0 0% 95%;
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 65%;
-    --accent: 0 0% 15%;
-    --accent-foreground: 0 0% 95%;
+    --secondary: 25 20% 18%;
+    --secondary-foreground: 30 15% 95%;
+    --muted: 20 10% 15%;
+    --muted-foreground: 30 10% 60%;
+    --accent: 30 50% 50%;
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 0 50% 40%;
-    --primary-dark: 0 50% 32%;
-    --hero-overlay: 0 0% 0%;
-    --section-alt: 0 0% 10%;
+    --border: 20 10% 18%;
+    --input: 20 10% 18%;
+    --ring: 10 55% 45%;
+    --primary-dark: 10 55% 35%;
+    --primary-light: 10 30% 15%;
+    --hero-overlay: 20 20% 5%;
+    --section-alt: 20 10% 9%;
+    --section-dark: 25 20% 8%;
+    --section-dark-foreground: 30 15% 95%;
+    --warm: 30 50% 45%;
+    --warm-foreground: 0 0% 100%;
   }
 }
 
@@ -81,9 +91,30 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-background text-foreground font-sans antialiased;
   }
   html {
     scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .page-hero {
+    @apply relative min-h-[400px] flex items-center justify-center;
+  }
+  .page-hero-overlay {
+    @apply absolute inset-0 bg-hero-overlay/75;
+  }
+  .page-hero-content {
+    @apply relative z-10 container mx-auto px-4 py-20 text-center;
+  }
+  .section-padding {
+    @apply py-20 lg:py-28;
+  }
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight;
+  }
+  .section-subtitle {
+    @apply text-lg text-muted-foreground max-w-2xl mx-auto mt-4;
   }
 }
